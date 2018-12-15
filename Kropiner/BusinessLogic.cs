@@ -178,7 +178,7 @@ namespace Kropiner
                 }
             }
 
-            _gameField[row, col].DrawSell(Drawer.myHelpDrawer.g, row, col, UserIntConst.Height, Status);
+            _gameField[row, col].DrawSell(Drawer.MyHelpDrawer.g, row, col, UserIntConst.Height, Status);
         }
 
         public static void ShowField(System.Drawing.Graphics g, GameStatus status)
@@ -186,7 +186,7 @@ namespace Kropiner
 
             for (int row = 0; row < UserIntConst.Row; row++)
             for (int col = 0; col < UserIntConst.Column; col++)
-                _gameField[row, col].DrawSell(Drawer.myHelpDrawer.g, row, col, UserIntConst.Height, status);
+                _gameField[row, col].DrawSell(Drawer.MyHelpDrawer.g, row, col, UserIntConst.Height, status);
         }
 
         internal static void PressTheButton()
@@ -228,10 +228,10 @@ namespace Kropiner
             else if (_gameField[row, col].HasFlag && !_gameField[row, col].IsOpen)
             {
                 _gameField[row, col].HasFlag = false;
-                _gameField[row, col].DrawSell(Drawer.myHelpDrawer.g, row, col, UserIntConst.Height, Status);
+                _gameField[row, col].DrawSell(Drawer.MyHelpDrawer.g, row, col, UserIntConst.Height, Status);
             }
 
-            _gameField[row, col].DrawSell(Drawer.myHelpDrawer.g, row, col, UserIntConst.Height, Status);
+            _gameField[row, col].DrawSell(Drawer.MyHelpDrawer.g, row, col, UserIntConst.Height, Status);
         }
 
         public Form3 Form3

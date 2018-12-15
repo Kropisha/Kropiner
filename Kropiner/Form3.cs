@@ -49,7 +49,7 @@ namespace Kropiner
 
             BusinessLogic.NewGame();
 
-            Drawer.myHelpDrawer.g = panel1.CreateGraphics();
+            Drawer.MyHelpDrawer.g = panel1.CreateGraphics();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,13 +60,13 @@ namespace Kropiner
             Form2 f = new Form2();
             BusinessLogic.PressTheButton();
             BusinessLogic.NewGame();
-            BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
+            BusinessLogic.ShowField(Drawer.MyHelpDrawer.g, BusinessLogic.Status);
             //timer1.Start();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
+            BusinessLogic.ShowField(Drawer.MyHelpDrawer.g, BusinessLogic.Status);
         }
       
         private void panel1_MouseClick(object sender, MouseEventArgs e)
@@ -102,7 +102,7 @@ namespace Kropiner
 
             if (BusinessLogic.Status == GameStatus.FAIL)
             {
-                BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
+                BusinessLogic.ShowField(Drawer.MyHelpDrawer.g, BusinessLogic.Status);
                 timer1.Stop();
                 // timer1 = 0;
                 player.URL = @"D:\Sounds\Sound_6332.mp3";
@@ -123,7 +123,7 @@ namespace Kropiner
                     DataSet1TableAdapters.KROPINERPROTableAdapter NN = new DataSet1TableAdapters.KROPINERPROTableAdapter();
                     
                     BusinessLogic.Status = GameStatus.VICTORY;
-                    BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
+                    BusinessLogic.ShowField(Drawer.MyHelpDrawer.g, BusinessLogic.Status);
                     timer1.Stop();
                     player.URL = @"D:\Sounds\Sound_8464.mp3";
                     player.controls.play();

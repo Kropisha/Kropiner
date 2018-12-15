@@ -48,7 +48,7 @@ namespace Kropiner
 
             // set flag in the cell
             if (_hasFlag)
-                Drawer.flag(g, x, y);
+                Drawer.Flag(g, x, y);
 
             //if (this.hasMine)
             //{
@@ -58,7 +58,7 @@ namespace Kropiner
             // if the game is over show mines
             if (((status == GameStatus.FAIL) || (status == GameStatus.VICTORY)) && (_hasMine))
             {
-                Drawer.mina(g, x, y);
+                Drawer.Mine(g, x, y);
             }
         }
 
