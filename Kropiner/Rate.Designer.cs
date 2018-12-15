@@ -1,6 +1,6 @@
 ﻿namespace Kropiner
 {
-    partial class Ratecs
+    partial class Rate
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ratecs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rate));
             this.KROPINERPROBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet1 = new Kropiner.DataSet1();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -74,7 +74,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ratecs";
             this.Text = "Rate";
-            this.Load += new System.EventHandler(this.Ratecs_Load);
+            this.Load += new System.EventHandler(this.Rate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.KROPINERPROBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
             this.ResumeLayout(false);

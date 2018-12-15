@@ -90,17 +90,17 @@
     <Compile Include="Enums\GameStatusEnum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ratecs.cs">
+    <Compile Include="Rate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ratecs.Designer.cs">
-      <DependentUpon>Ratecs.cs</DependentUpon>
+    <Compile Include="Rate.Designer.cs">
+      <DependentUpon>Rate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Storycs.cs">
+    <Compile Include="Story.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Storycs.Designer.cs">
-      <DependentUpon>Storycs.cs</DependentUpon>
+    <Compile Include="Story.Designer.cs">
+      <DependentUpon>Story.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -120,12 +120,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Ratecs.resx">
-      <DependentUpon>Ratecs.cs</DependentUpon>
+    <EmbeddedResource Include="Rate.resx">
+      <DependentUpon>Rate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Storycs.resx">
-      <DependentUpon>Storycs.cs</DependentUpon>
+    <EmbeddedResource Include="Story.resx">
+      <DependentUpon>Story.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="DataSet1.xsc">
@@ -174,8 +174,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Screenshots\" />
+    <Content Include="Screenshots\photo_2018-12-15_13-10-29.jpg" />
+    <Content Include="Screenshots\photo_2018-12-15_13-16-16.jpg" />
+    <Content Include="Screenshots\photo_2018-12-15_13-16-18.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

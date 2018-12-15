@@ -35,14 +35,14 @@ namespace Kropiner
         private void button3_Click(object sender, EventArgs e)
         {
             //this.Close();
-            Storycs f = new Storycs();
+            Story f = new Story();
             f.Show();
             BusinessLogic.PressTheButton();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Ratecs f = new Ratecs();
+            Rate f = new Rate();
             f.Show();
             BusinessLogic.PressTheButton();
         }

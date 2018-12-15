@@ -1,6 +1,6 @@
 ﻿namespace Kropiner
 {
-    partial class Storycs
+    partial class Story
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Storycs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Story));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -82,8 +82,8 @@
             this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "Storycs";
             this.Text = "Story";
-            this.Load += new System.EventHandler(this.Storycs_Load);
-            this.Shown += new System.EventHandler(this.Storycs_Shown);
+            this.Load += new System.EventHandler(this.Story_Load);
+            this.Shown += new System.EventHandler(this.Story_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -4,9 +4,9 @@ using WMPLib;
 
 namespace Kropiner
 {
-    public partial class Storycs : Form
+    public partial class Story : Form
     {
-        public Storycs()
+        public Story()
         {
             InitializeComponent();
             
@@ -16,15 +16,11 @@ namespace Kropiner
         {
             get
             {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
+                throw new NotImplementedException();
             }
         }
 
-        private void Storycs_Load(object sender, EventArgs e)
+        private void Story_Load(object sender, EventArgs e)
         {
             NewMethod();
         }
@@ -36,7 +32,7 @@ namespace Kropiner
             player.controls.play();
         }
 
-        private void Storycs_Shown(object sender, EventArgs e)
+        private void Story_Shown(object sender, EventArgs e)
         {
             WindowsMediaPlayer player = new WindowsMediaPlayer();
             player.URL = @"D:\Sounds\Space_Station_Experience.mp3";
