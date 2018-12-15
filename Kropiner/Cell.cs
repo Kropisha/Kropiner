@@ -1,58 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Kropiner
 {
-    class Cell
+    internal class Cell
     {
-        private int sellSize; //размер клетки
+        private int _sellSize; // the size of the cell
 
-        private bool hasMine; //есть ли в клетке мина
-        private bool hasFlag; //стоит ли в клетке флажок
-        private bool isOpen;  //открыта ли клетка
+        private bool _hasMine; // if the cell has mine
+        private bool _hasFlag; // if the cell has flag
+        private bool _isOpen;  // if the cell is open
 
-        private int neibourMinesQty; //сколько в сумме мин в соседних клетках 
+        private int _neighborMinesQty; //how much mines in the neighbors cells 
 
-        private Brush sellBackColor; //цвет фона клетки
+        private Brush _sellBackColor; //the background color of cell
 
-        public Cell(int _sellSize, bool _isOnBorder)
+        public Cell(int sellSize, bool _isOnBorder)
         {
-            sellSize = _sellSize;
+            _sellSize = sellSize;
 
-            hasMine = false;
-            neibourMinesQty = 0;
-            sellBackColor = Brushes.GreenYellow;
-            hasFlag = false;
-            isOpen = false;
+            _hasMine = false;
+            _neighborMinesQty = 0;
+            _sellBackColor = Brushes.GreenYellow;
+            _hasFlag = false;
+            _isOpen = false;
         }
-        public void DrawSell(Graphics g, int row, int col, int CellSize, BL.GameStatus status)
+        public void DrawSell(Graphics g, int row, int col, int cellSize, GameStatus status)
         {
 
-            // координаты левого верхнего угла клетки
-            int x = (col) * CellSize + 1;
-            int y = (row) * CellSize + 1;
+            // coordinates of the upper left corner of the cell
+            int x = (col) * cellSize + 1;
+            int y = (row) * cellSize + 1;
 
-            if (status == BL.GameStatus.FAIL && this.hasMine)
+            if (status == GameStatus.FAIL && _hasMine)
             {
-                this.sellBackColor = Brushes.Red;
+                _sellBackColor = Brushes.Red;
             }
 
-            g.FillRectangle(sellBackColor, x - 1, y - 1, CellSize, CellSize);// рисуем фон клетки
-            g.DrawRectangle(Pens.Black, x - 1, y - 1, CellSize, CellSize);  // рисуем границу клетки
+            g.FillRectangle(_sellBackColor, x - 1, y - 1, cellSize, cellSize);// fill the cell with color
+            g.DrawRectangle(Pens.Black, x - 1, y - 1, cellSize, cellSize);  // draw the border of the cell
 
-            if (this.isOpen)
+            if (_isOpen)
             {
-                g.DrawString((this.neibourMinesQty == 0 ? "" : this.neibourMinesQty.ToString()),
-                    new Font("Tahoma", 16, System.Drawing.FontStyle.Regular),
+                g.DrawString((_neighborMinesQty == 0 ? "" : _neighborMinesQty.ToString()),
+                    new Font("Tahoma", 16, FontStyle.Regular),
                       Brushes.Indigo, x + 10, y + 7);
             }
 
-            // в клетке поставлен флаг
-            if (this.hasFlag)
+            // set flag in the cell
+            if (_hasFlag)
                 Drawer.flag(g, x, y);
 
             //if (this.hasMine)
@@ -60,8 +55,8 @@ namespace Kropiner
             //  this.DrawMine(g, x, y);
             //}
 
-            // если игра завершена поражением, показываем мины
-            if (((status == BL.GameStatus.FAIL) || (status == BL.GameStatus.VICTORY)) && (this.hasMine))
+            // if the game is over show mines
+            if (((status == GameStatus.FAIL) || (status == GameStatus.VICTORY)) && (_hasMine))
             {
                 Drawer.mina(g, x, y);
             }
@@ -69,40 +64,40 @@ namespace Kropiner
 
         public void OpenSell()
         {
-            this.IsOpen = true;
-            this.SellBackColor = Brushes.Khaki;
+            IsOpen = true;
+            SellBackColor = Brushes.Khaki;
         }
 
         public Brush SellBackColor
         {
             //get { return (sellBackColor); }
-            set { sellBackColor = value; }
+            set { _sellBackColor = value; }
         }
-        public int NeibourMinesQty
+        public int NeighborMinesQty
         {
-            get { return (neibourMinesQty); }
-            set { neibourMinesQty = value; }
+            get { return (_neighborMinesQty); }
+            set { _neighborMinesQty = value; }
         }
         public bool HasMine
         {
-            get { return (hasMine); }
-            set { hasMine = value; }
+            get { return (_hasMine); }
+            set { _hasMine = value; }
         }
 
         public bool HasFlag
         {
-            get { return (hasFlag); }
-            set { hasFlag = value; }
+            get { return (_hasFlag); }
+            set { _hasFlag = value; }
         }
         public bool IsOpen
         {
-            get { return (isOpen); }
-            set { isOpen = value; }
+            get { return (_isOpen); }
+            set { _isOpen = value; }
         }
         public int SellSize
         {
-            get { return (sellSize); }
-            set { sellSize = value; }
+            get { return (_sellSize); }
+            set { _sellSize = value; }
         }
 
         public Form3 Form3
@@ -110,10 +105,6 @@ namespace Kropiner
             get
             {
                 throw new System.NotImplementedException();
-            }
-
-            set
-            {
             }
         }
     }

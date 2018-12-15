@@ -41,13 +41,13 @@ namespace Kropiner
         public void GetField()
         {
            
-            BL.SetComplLevel();
+            BusinessLogic.SetComplLevel();
             label6.Text = Form2.name;
-            BL.haveGameField();
-            this.ClientSize = new Size(BL.userIntConst.width * BL.userIntConst.Column + 1, BL.userIntConst.height * BL.userIntConst.Row + 1);
-            this.panel1.ClientSize = new Size(BL.userIntConst.width * BL.userIntConst.Column + 1, BL.userIntConst.height * BL.userIntConst.Row +1); //+ groupBox1.Height + 1
+            BusinessLogic.HaveGameField();
+            this.ClientSize = new Size(BusinessLogic.UserIntConst.Width * BusinessLogic.UserIntConst.Column + 1, BusinessLogic.UserIntConst.Height * BusinessLogic.UserIntConst.Row + 1);
+            this.panel1.ClientSize = new Size(BusinessLogic.UserIntConst.Width * BusinessLogic.UserIntConst.Column + 1, BusinessLogic.UserIntConst.Height * BusinessLogic.UserIntConst.Row +1); //+ groupBox1.Height + 1
 
-            BL.newGame();
+            BusinessLogic.NewGame();
 
             Drawer.myHelpDrawer.g = panel1.CreateGraphics();
         }
@@ -58,15 +58,15 @@ namespace Kropiner
             seconds = 0;
             minutes = 0;
             Form2 f = new Form2();
-            BL.PressTheButton();
-            BL.newGame();
-            BL.ShowField(Drawer.myHelpDrawer.g, BL.status);
+            BusinessLogic.PressTheButton();
+            BusinessLogic.NewGame();
+            BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
             //timer1.Start();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            BL.ShowField(Drawer.myHelpDrawer.g, BL.status);
+            BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
         }
       
         private void panel1_MouseClick(object sender, MouseEventArgs e)
@@ -79,15 +79,15 @@ namespace Kropiner
             KROPINERPROTableAdapter editKrop = new KROPINERPROTableAdapter();
 
             // игра завершена
-            if (BL.status == BL.GameStatus.VICTORY || BL.status == BL.GameStatus.FAIL)
+            if (BusinessLogic.Status == GameStatus.VICTORY || BusinessLogic.Status == GameStatus.FAIL)
             {
                 return;
             }
 
             // первый щелчок
-            if (BL.status == BL.GameStatus.BEGIN)
+            if (BusinessLogic.Status == GameStatus.BEGIN)
             {
-                BL.status = BL.GameStatus.ON;
+                BusinessLogic.Status = GameStatus.ON;
             }
 
             int row, col, x, y;
@@ -96,13 +96,13 @@ namespace Kropiner
             // щелчок левой кнопки мыши
             if (e.Button == MouseButtons.Left)
             {
-                BL.PressTheButton();
-                BL.open(row - 1, col - 1);
+                BusinessLogic.PressTheButton();
+                BusinessLogic.Open(row - 1, col - 1);
             }
 
-            if (BL.status == BL.GameStatus.FAIL)
+            if (BusinessLogic.Status == GameStatus.FAIL)
             {
-                BL.ShowField(Drawer.myHelpDrawer.g, BL.status);
+                BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
                 timer1.Stop();
                 // timer1 = 0;
                 player.URL = @"D:\Sounds\Sound_6332.mp3";
@@ -116,14 +116,14 @@ namespace Kropiner
             // щелчок правой кнопки мыши
             if (e.Button == MouseButtons.Right)
             {
-                BL.PressTheButton();
-                BL.AddFlag(row - 1, col - 1);
-                if (BL.CheckIfVictory())
+                BusinessLogic.PressTheButton();
+                BusinessLogic.AddFlag(row - 1, col - 1);
+                if (BusinessLogic.CheckIfVictory())
                 {
                     DataSet1TableAdapters.KROPINERPROTableAdapter NN = new DataSet1TableAdapters.KROPINERPROTableAdapter();
                     
-                    BL.status = BL.GameStatus.VICTORY;
-                    BL.ShowField(Drawer.myHelpDrawer.g, BL.status);
+                    BusinessLogic.Status = GameStatus.VICTORY;
+                    BusinessLogic.ShowField(Drawer.myHelpDrawer.g, BusinessLogic.Status);
                     timer1.Stop();
                     player.URL = @"D:\Sounds\Sound_8464.mp3";
                     player.controls.play();
@@ -146,29 +146,29 @@ namespace Kropiner
             // клетки поля, в которой был сделан щелчок;
             // (e.X, e.Y) - координаты точки формы,
             // в которой была нажата кнопка мыши;            
-            row = (int)(e.Y / BL.userIntConst.height) + 1;
-            col = (int)(e.X / BL.userIntConst.width) + 1;
+            row = (int)(e.Y / BusinessLogic.UserIntConst.Height) + 1;
+            col = (int)(e.X / BusinessLogic.UserIntConst.Width) + 1;
 
             // координаты области вывода
-            x = (col - 1) * BL.userIntConst.width + 1;
-            y = (row - 1) * BL.userIntConst.height + 1;
+            x = (col - 1) * BusinessLogic.UserIntConst.Width + 1;
+            y = (row - 1) * BusinessLogic.UserIntConst.Height + 1;
         }
 
         private void easyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BL._complLevel = BL.ComplLevel.Normal;
+            BusinessLogic.ComplexityLevel = ComplLevel.Normal;
             GetField();
         }
 
         private void hardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BL._complLevel = BL.ComplLevel.Hard;
+            BusinessLogic.ComplexityLevel = ComplLevel.Hard;
             GetField();
         }
 
         private void mediumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BL._complLevel = BL.ComplLevel.Medium;
+            BusinessLogic.ComplexityLevel = ComplLevel.Medium;
             GetField();
         }
     }

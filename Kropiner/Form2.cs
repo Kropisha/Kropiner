@@ -29,7 +29,7 @@ namespace Kropiner
                 name = textBox1.Text.ToString();
                 Form3 f = new Form3();
                 f.Show();
-                BL.PressTheButton();
+                BusinessLogic.PressTheButton();
                 this.Close();          
             }
         }

@@ -19,7 +19,7 @@ namespace Kropiner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BL.PressTheButton();
+            BusinessLogic.PressTheButton();
             this.Close();
             
         }
@@ -29,7 +29,7 @@ namespace Kropiner
             Form2 f = new Form2();
             f.Show();
             // this.Close();
-            BL.PressTheButton();
+            BusinessLogic.PressTheButton();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -37,14 +37,14 @@ namespace Kropiner
             //this.Close();
             Storycs f = new Storycs();
             f.Show();
-            BL.PressTheButton();
+            BusinessLogic.PressTheButton();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Ratecs f = new Ratecs();
             f.Show();
-            BL.PressTheButton();
+            BusinessLogic.PressTheButton();
         }
     }
 }
