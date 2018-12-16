@@ -114,4 +114,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="LoseMassage" xml:space="preserve">
+    <value>Game over! Too much time!!</value>
+  </data>
+  <data name="LooseStatus" xml:space="preserve">
+    <value>Loser</value>
+  </data>
+  <data name="Looser" xml:space="preserve">
+    <value>Looser..</value>
+  </data>
+  <data name="Motivate" xml:space="preserve">
+    <value>Never give up</value>
+  </data>
+  <data name="Victory" xml:space="preserve">
+    <value>It's victory!! Get it!</value>
+  </data>
+  <data name="Praise" xml:space="preserve">
+    <value>You are good at this</value>
+  </data>
 </root>

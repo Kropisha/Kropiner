@@ -50,11 +50,6 @@ namespace Kropiner
             if (_hasFlag)
                 Drawer.Flag(g, x, y);
 
-            //if (this.hasMine)
-            //{
-            //  this.DrawMine(g, x, y);
-            //}
-
             // if the game is over show mines
             if (((status == GameStatus.FAIL) || (status == GameStatus.VICTORY)) && (_hasMine))
             {
